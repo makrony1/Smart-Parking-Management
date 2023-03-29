@@ -1,0 +1,67 @@
+
+<div class="container-fluid">
+
+  <div class="row content">
+    <div class="col-sm-4">
+      <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">Available Parking</div>
+        <div class="card-body">
+          <h5 class="card-title">Total Parking available: {{totalAvailable}}</h5>
+          <ul>
+            <li *ngFor="let r of report.availableParking"> 
+              {{ r.type }} : {{r.count}}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    
+    <div class="col-sm-4">
+      <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">Earning</div>
+        <div class="card-body">
+          <h5 class="card-title">{{report.taotalEarning.total| currency:'USA'}}</h5>
+          <p class="card-text">This income of last 30 days from {{report.taotalEarning.dateFrom}} to {{report.taotalEarning.dateTo}}</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-4">
+      <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">Right now parked</div>
+        <div class="card-body">
+          <h5 class="card-title">{{report.totalParked}} Car(s) parked right now</h5>
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row content">
+    <div class="col-sm-6">
+      <h4>Checkin</h4>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">License plate</span>
+        </div>
+        <input type="text" [(ngModel)]="checkinPlate" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        <button type="button" (click)="checkinClick()" class="btn btn-primary">Checkin</button>
+      </div>
+
+    </div>
+    <div class="col-sm-6">
+      <h4>Checkout</h4>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">License plate</span>
+        </div>
+        <input type="text" [(ngModel)]="checkoutPlate" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        <button type="button" (click)="checkoutClick()" class="btn btn-primary">Checkout</button>
+      </div>
+    </div>
+    </div>
+    </div>
+
+<router-outlet></router-outlet>
