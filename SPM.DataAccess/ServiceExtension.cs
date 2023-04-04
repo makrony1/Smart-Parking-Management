@@ -11,18 +11,15 @@ namespace SPM.DataAccess
 {
     public static class ServiceExtension
     {
-        public static IServiceCollection AddDIServices(this IServiceCollection services, IConfiguration configuration)
+        public static void AddDIServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<SPMDbContext>(options =>
             {
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
             });
-            //services.AddScoped<IUnitOfWork, UnitOfWork>();
-            //services.AddScoped<IProductRepository, ProductRepository>();
 
             services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
 
-            return services;
         }
     }
 }

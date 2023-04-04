@@ -13,12 +13,10 @@ namespace SPM.BL
 {
     public static class BlServiceExtension
     {
-        public static IServiceCollection AddBlServices(this IServiceCollection services, IConfiguration configuration)
+        public static void AddBlServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddTransient<IParkService, ParkService>();
             services.AddTransient<IReportService, ReportService>();
-
-            return services;
         }
     }
 }
